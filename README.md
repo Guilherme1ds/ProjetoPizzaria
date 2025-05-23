@@ -1,1 +1,1 @@
-Projet do site de uma pizzaria 
+Projeto do site de uma pizzaria 

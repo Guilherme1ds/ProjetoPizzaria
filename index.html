@@ -10,11 +10,11 @@
   <div class="container">
     <h1>ITALIANOS PIZZAS</h1>
     <div class="menu">
-        <!-- <button onclick="mostrarSecao('consulta')">Consultar Pizzas</button>
-        <button onclick="mostrarSecao('config')">Editar Informações</button>
+        <button onclick="mostrarSecao('cadastro')">Cadastrar Pizza</button>
+        <!-- <button onclick="mostrarSecao('config')">Editar Informações</button>
         <button onclick="mostrarSecao('pedidos')">Pedidos</button>
         <button onclick="mostrarSecao('logar')">Login</button> -->
-        <button onclick="mostrarSecao('cadastro')">Cadastrar Pizza</button>
+        <button onclick="mostrarSecao('consulta')">Consultar Pizzas</button>
     </div>
 
     <!--Seção de Cadastrar Pizzas-->
@@ -40,7 +40,7 @@
     <div id="consulta" class="hidden">
         <h2>Consultar Pizzas</h2>
         <div class="form-group">
-            <input type="text" id="pesquisa" placeholder="Digite o nome da pizza">
+            <input type="text" id="pesquisa" placeholder="Digite o nome da pizza" oninput="buscarPizza()">
             <table>
                 <thead>
                     <tr>

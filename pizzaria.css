@@ -1,107 +1,152 @@
 * {
-    box-sizing: border-box;
-    font-family: 'Ubuntu', Verdana, Geneva, Tahoma, sans-serif;
-    
-  }
+  box-sizing: border-box;
+  font-family: 'Ubuntu', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh; /* garante altura mínima da tela inteira */
+  background-image: url('Pizza-3007395.jpg'); /* ou o caminho que você usar */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #1e1e1e;
+}
+
+/* Container principal */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border: 2px solid #e74c3c;
   
-  body {
-    font-family: 'Ubuntu', Verdana, Geneva, Tahoma, sans-serif;
-    margin: 20px;
-    background-color: #f9f9f9;
-    color: #333;
-  }
-  
-  .container {
-    max-width: 1200px;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1, h2 {
-    text-align: center;
-    color: #444;
-  }
-  
-  .menu {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  .menu button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: red;
-    color: white;
-    font-size: 20px;
-    transition: background-color 0.3s;
-    font-family: 'Ubuntu', Verdana, Geneva, Tahoma, sans-serif;
-  }
-  
-  .menu button:hover {
-    background-color: red;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    font-family: 'Ubuntu', Verdana, Geneva, Tahoma, sans-serif;
-  }
-  
-  input, button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 14px;
-    font-family: 'Ubuntu', Verdana, Geneva, Tahoma, sans-serif;
-  }
-  
-  button {
-    background-color: red;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-family: 'Ubuntu', Verdana, Geneva, Tahoma, sans-serif;
-  }
-  
-  button:hover {
-    background-color: red;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  th {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
-  .icon {
-    margin-right: 5px;
-  }
+  background-color: rgba(255, 255, 255, 0.8); /* branco com 80% de opacidade */
+}
+
+/* Títulos */
+h1, h2 {
+  text-align: center;
+  color: #e74c3c; /* vermelho escuro vibrante */
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* Menu de navegação */
+.menu {
+  display: flex;
+  justify-content: center; /* centraliza horizontalmente */
+  gap: 20px;              /* espaço entre os botões */
+  flex-wrap: nowrap;      /* evita quebra para múltiplas linhas */
+  margin-bottom: 30px;
+}
+
+.menu button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 6px;
+  background-color: #1e1e1e;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  white-space: nowrap; /* impede o texto quebrar linha */
+}
+
+.menu button:hover {
+  background-color: #e74c3c;
+}
+
+/* Grupos de formulário*/
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #1e1e1e;
+}
+
+/* Campos de entrada */
+input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* Botões gerais */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #1e1e1e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #e74c3c;
+}
+
+/* Tabelas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+/* Ícones */
+.icon {
+  margin-right: 6px;
+}
+
+/* Esconder elementos */
+.hidden {
+  display: none !important;
+}
+
+/* Mensagens de sucesso e erro */
+.mensagem {
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+}
+
+.mensagem.sucesso {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.mensagem.erro {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+

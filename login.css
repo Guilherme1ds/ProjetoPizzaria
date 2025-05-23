@@ -1,0 +1,91 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Ubuntu', Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  background-image: url('Pizza-3007395.jpg'); /* ajuste o caminho conforme sua pasta */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #eee;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: rgba(30, 30, 30, 0.85); /* preto translúcido */
+  padding: 40px 50px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+  width: 350px;
+  text-align: center;
+  border: 2px solid #e74c3c; /* vermelho */
+}
+
+h1, h2 {
+  margin-bottom: 20px;
+  color: #e74c3c;
+  font-weight: 700;
+}
+
+label {
+  display: block;
+  margin: 15px 0 6px 0;
+  font-weight: 600;
+  color: #fff;
+  text-align: left;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: 2px solid #e74c3c;
+  background-color: #2a2a2a;
+  color: #fff;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  background-color: #e74c3c;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 15px;
+}
+
+button:hover {
+  background-color: #c0392b;
+}
+
+.mensagem {
+  margin-top: 15px;
+  font-weight: 600;
+  color: #f1c40f; /* amarelo para destaque */
+}
+
+.hidden {
+  display: none;
+}
