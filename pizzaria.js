@@ -32,9 +32,9 @@ function validarLogin() {
 
 function mostrarSecao(secao) {
     document.getElementById("consulta").classList.add("hidden");
-    // document.getElementById("config").classList.add("hidden");
-    // document.getElementById("pedidos").classList.add("hidden");
-    // document.getElementById("logar").classList.add("hidden")
+    document.getElementById("alterar").classList.add("hidden");
+    // document.getElementById("venda").classList.add("hidden");
+    // document.getElementById("relatorio").classList.add("hidden")
     document.getElementById("cadastro").classList.add("hidden");
 
     document.getElementById(secao).classList.remove("hidden");
@@ -63,6 +63,42 @@ function buscarPizza() {
       pizza.nome.toLowerCase().includes(pesquisa)
     );
     atualizarCardapio(resultados);
+}
+
+function buscarPizzaParaAlterar() {
+  const busca = document.getElementById("busca-alterar").value.toLowerCase();
+  pizzaParaAlterar = pizzaria.find((pizza) =>
+    pizza.nome.toLowerCase().includes(busca)
+  );
+
+  if (pizzaParaAlterar) {
+    document.getElementById("form-alterar").classList.remove("hidden");
+    document.getElementById("novo-nome").value = pizzaParaAlterar.nome;
+    document.getElementById("novo-ingrediente").value = pizzaParaAlterar.ingredientes;
+    document.getElementById("novo-preco").value = pizzaParaAlterar.preco;
+  } else {
+    alert("Pizza não encontrada.");
+  }
+}
+
+function alterarPizza() {
+  if (pizzaParaAlterar) {
+    const novoNome = document.getElementById("novo-nome").value;
+    const novoIngrediente = document.getElementById("novo-ingrediente").value;
+    const novoPreco = parseInt(document.getElementById("novo-preco").value);
+
+    if (novoNome && novoIngrediente && novoPreco) {
+      pizzaParaAlterar.nome = novoNome;
+      pizzaParaAlterar.ingredientes = novoIngrediente;
+      pizzaParaAlterar.preco = novoPreco;
+
+      atualizarCardapio();
+      alert("Pizza alterada com sucesso!");
+      document.getElementById("form-alterar").classList.add("hidden");
+    } else {
+      alert("Por favor, preencha todos os campos.");
+    }
+  }
 }
 
 function atualizarCardapio(lista = pizzaria) {
