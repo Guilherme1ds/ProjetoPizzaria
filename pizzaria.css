@@ -1,152 +1,244 @@
-* {
-  box-sizing: border-box;
-  font-family: 'Ubuntu', Verdana, Geneva, Tahoma, sans-serif;
-}
-
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
 
 body {
-  min-height: 100vh; /* garante altura mínima da tela inteira */
-  background-image: url('Pizza-3007395.jpg'); /* ou o caminho que você usar */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  color: #1e1e1e;
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    background: linear-gradient(135deg, #f9f9f9 0%, #dcdcdc 40%, #b0b0b0 70%, #222222 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 30s ease infinite;
+    color: #222;
+    min-height: 100vh;
 }
 
-/* Container principal */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  border: 2px solid #e74c3c;
-  
-  background-color: rgba(255, 255, 255, 0.8); /* branco com 80% de opacidade */
+    max-width: 1000px;
+    margin: auto;
+    padding: 40px 20px;
+    text-align: center;
+    animation: fadeInUp 1.2s ease forwards;
+    opacity: 0;
 }
 
-/* Títulos */
-h1, h2 {
-  text-align: center;
-  color: #e74c3c; /* vermelho escuro vibrante */
-  font-weight: bold;
-  margin-bottom: 15px;
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.2em;
+    color: #111;
+    margin-bottom: 30px;
+    text-shadow: 0 0 12px #bbb, 0 0 24px #bbb;
+    animation: glowLight 2.5s ease-in-out infinite alternate;
 }
 
-/* Menu de navegação */
+@keyframes glowLight {
+    from {
+        text-shadow: 0 0 10px #bbb, 0 0 20px #bbb;
+    }
+    to {
+        text-shadow: 0 0 20px #444, 0 0 30px #444;
+    }
+}
+
 .menu {
-  display: flex;
-  justify-content: center; /* centraliza horizontalmente */
-  gap: 20px;              /* espaço entre os botões */
-  flex-wrap: nowrap;      /* evita quebra para múltiplas linhas */
-  margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    animation: fadeInUp 1.4s ease forwards;
+    opacity: 0;
 }
 
 .menu button {
-  padding: 12px 25px;
-  border: none;
-  border-radius: 6px;
-  background-color: #1e1e1e;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  white-space: nowrap; /* impede o texto quebrar linha */
+    background: #f7f7f7;
+    color: #222;
+    border: 2px solid #444;
+    padding: 15px 25px;
+    font-size: 1em;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.4s ease, transform 0.2s ease;
+    box-shadow: 0 0 5px #ccc;
 }
 
 .menu button:hover {
-  background-color: #e74c3c;
+    background-color: #444;
+    color: #fafafa;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #444;
 }
 
-/* Grupos de formulário*/
-.form-group {
-  margin-bottom: 20px;
+.hidden {
+    display: none;
 }
 
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #1e1e1e;
+/* Seções internas */
+#cadastro, #consulta, #alterar, #venda, #relatorio-vendas {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    animation: fadeInUp 1.6s ease forwards;
+    opacity: 0;
+    color: #111;
 }
 
-/* Campos de entrada */
-input {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
+#cadastro:hover, #consulta:hover, #alterar:hover, #venda:hover, #relatorio-vendas:hover {
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
 }
 
-/* Botões gerais */
+input[type="text"], input[type="number"] {
+    padding: 12px;
+    width: 100%;
+    margin: 10px 0 20px;
+    border-radius: 8px;
+    border: 1px solid #999;
+    background-color: #fafafa;
+    color: #111;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+    border-color: #444;
+    box-shadow: 0 0 10px #444;
+    outline: none;
+}
+
 button {
-  width: 100%;
-  padding: 12px;
-  background-color: #1e1e1e;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
+    background-color: #222;
+    color: #fafafa;
+    padding: 12px 20px;
+    font-size: 1em;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 button:hover {
-  background-color: #e74c3c;
+    background-color: #444;
+    color: #fafafa;
+    box-shadow: 0 0 20px #444;
+    transform: translateY(-3px);
 }
 
-/* Tabelas */
+/* Tabela */
 table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
 th, td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
 }
 
 th {
-  background-color: #1e1e1e;
-  color: white;
+    background-color: #eee;
+    color: #111;
 }
 
-/* Ícones */
-.icon {
-  margin-right: 6px;
+td {
+    color: #111;
 }
 
-/* Esconder elementos */
-.hidden {
-  display: none !important;
+/* Lista de vendas */
+#lista-vendas {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    text-align: left;
 }
 
-/* Mensagens de sucesso e erro */
+#lista-vendas li {
+    padding: 10px;
+    background-color: #fafafa;
+    margin-bottom: 8px;
+    border-left: 5px solid #222;
+    transition: background-color 0.3s ease;
+    color: #111;
+}
+
+#lista-vendas li:hover {
+    background-color: #e6e6e6;
+}
+
+/* Mensagens de status */
 .mensagem {
-  padding: 10px;
-  margin-top: 15px;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 16px;
-  text-align: center;
+    font-weight: 600;
+    margin-top: 15px;
+    padding: 15px 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    animation: shake 0.4s ease-in-out 2;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .mensagem.sucesso {
-  background-color: #d4edda;
-  color: #155724;
+    color: #155724;
+    background-color: #d4edda;
+    border: 1.5px solid #c3e6cb;
+    box-shadow: 0 0 12px #28a745;
+    animation: none; /* Sem shake para sucesso */
 }
 
 .mensagem.erro {
-  background-color: #f8d7da;
-  color: #721c24;
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1.5px solid #f5c6cb;
+    box-shadow: 0 0 12px #b22222;
 }
 
+/* Animação shake para erro */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+/* Animações gerais */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .menu {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

@@ -33,8 +33,7 @@ function validarLogin() {
 function mostrarSecao(secao) {
     document.getElementById("consulta").classList.add("hidden");
     document.getElementById("alterar").classList.add("hidden");
-    // document.getElementById("venda").classList.add("hidden");
-    // document.getElementById("relatorio").classList.add("hidden")
+    document.getElementById("venda").classList.add("hidden");
     document.getElementById("cadastro").classList.add("hidden");
 
     document.getElementById(secao).classList.remove("hidden");
@@ -51,9 +50,9 @@ function cadastrarPizza() {
         document.getElementById("ingredientes").value = "";
         document.getElementById("preco").value = "";
         atualizarCardapio();
-        resultado.innerHTML = "Pizza cadastrada com sucesso!";
+        exibirMensagem("Pizza cadastrada com sucesso!");
     } else {
-        resultado.innerHTML = "Por favor, preencha todos os campos";
+        exibirMensagem("Por favor, preencha todos os campos");
     }
 }
 
@@ -77,7 +76,7 @@ function buscarPizzaParaAlterar() {
     document.getElementById("novo-ingrediente").value = pizzaParaAlterar.ingredientes;
     document.getElementById("novo-preco").value = pizzaParaAlterar.preco;
   } else {
-    alert("Pizza não encontrada.");
+    exibirMensagem("Pizza não encontrada.");
   }
 }
 
@@ -93,10 +92,10 @@ function alterarPizza() {
       pizzaParaAlterar.preco = novoPreco;
 
       atualizarCardapio();
-      alert("Pizza alterada com sucesso!");
+      exibirMensagem("Pizza alterada com sucesso!");
       document.getElementById("form-alterar").classList.add("hidden");
     } else {
-      alert("Por favor, preencha todos os campos.");
+      exibirMensagem("Por favor, preencha todos os campos.");
     }
   }
 }
@@ -110,8 +109,70 @@ function atualizarCardapio(lista = pizzaria) {
     linha.innerHTML = `
     <td>${pizza.nome}</td>
     <td>${pizza.ingredientes}</td>
-    <td>${pizza.preco}</td>
+    <td>R$${pizza.preco}</td>
     `;
     tabela.appendChild(linha);
     })
+}
+
+let vendas = []
+
+function registrarVenda() {
+  const nome = document.getElementById('venda-nome').value;
+  const preco = document.getElementById('venda-preco').value;
+  const cliente = document.getElementById('venda-cliente').value;
+
+  if (nome && preco && cliente) {
+    const listaVendas = document.getElementById('lista-vendas');
+    const item = document.createElement('li');
+    item.textContent = `Sabor: ${nome}, Preço: R$${preco}, Cliente: ${cliente}`;
+    listaVendas.appendChild(item);
+
+    vendas.push({ nome, preco, cliente });
+
+    document.getElementById('venda-nome').value = '';
+    document.getElementById('venda-preco').value = '';
+    document.getElementById('venda-cliente').value = '';
+  } else {
+    exibirMensagem('Por favor, preencha todos os campos');
+  }
+}
+
+function gerarRelatorioVendas() {
+  const tabelaRelatorio = document.getElementById('tabela-relatorio-vendas');
+    tabelaRelatorio.innerHTML = ''; 
+
+    if (vendas.length === 0) {
+        exibirMensagem('Nenhuma venda registrada.');
+        return;
+    }
+
+    let totalVendas = 0; 
+
+    if (totalVendas.length == 0) {
+        exibirMensagem('Valor de Venda não registrado!')
+        return;
+    }
+
+    vendas.forEach((venda) => {
+        const linha = document.createElement('tr');
+        linha.innerHTML = `
+        <td>${venda.nome}</td>
+        <td>R$${parseFloat(venda.preco).toFixed(2)}</td>
+        <td>${venda.cliente}</td>
+    `;
+    tabelaRelatorio.appendChild(linha);
+
+    totalVendas += parseFloat(venda.preco);
+  });
+
+  const linhaTotal = document.createElement('tr');
+  linhaTotal.innerHTML = `
+  <td><strong>Total</strong></td>
+  <td><strong>R$${totalVendas.toFixed(2)}</strong></td>
+  <td><td>
+`;
+tabelaRelatorio.appendChild(linhaTotal);
+
+document.getElementById('relatorio-vendas').classList.remove('hidden');
 }
