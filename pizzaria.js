@@ -1,6 +1,11 @@
 let pizzaria = [];
 let pizzaParaAlterar;
+
 let resultado = document.getElementById("cadastrofeito");
+let resulbuscalt = document.getElementById("buscalterarfeito");
+let resulalt = document.getElementById("alterarfeito");
+let resulvenda = document.getElementById("vender");
+let resulrelat = document.getElementById("relato");
 
 function exibirMensagem(texto, tipo) {
     const mensagem = document.getElementById("mensagem");
@@ -50,9 +55,9 @@ function cadastrarPizza() {
         document.getElementById("ingredientes").value = "";
         document.getElementById("preco").value = "";
         atualizarCardapio();
-        exibirMensagem("Pizza cadastrada com sucesso!");
+        resultado.innerHTML = ("Pizza cadastrada com sucesso!");
     } else {
-        exibirMensagem("Por favor, preencha todos os campos");
+        resultado.innerHTML = ("Por favor, preencha todos os campos");
     }
 }
 
@@ -76,8 +81,12 @@ function buscarPizzaParaAlterar() {
     document.getElementById("novo-ingrediente").value = pizzaParaAlterar.ingredientes;
     document.getElementById("novo-preco").value = pizzaParaAlterar.preco;
   } else {
-    exibirMensagem("Pizza não encontrada.");
+    resulbuscalt.innerHTML = ("Pizza não encontrada");
   }
+
+  setTimeout(() => {
+        resulbuscalt.classList.add("hidden");
+    }, 3000);
 }
 
 function alterarPizza() {
@@ -92,10 +101,10 @@ function alterarPizza() {
       pizzaParaAlterar.preco = novoPreco;
 
       atualizarCardapio();
-      exibirMensagem("Pizza alterada com sucesso!");
+      resulalt.innerHTML = ("Pizza alterada com sucesso!");
       document.getElementById("form-alterar").classList.add("hidden");
     } else {
-      exibirMensagem("Por favor, preencha todos os campos.");
+      resulalt.innerHTML = ("Por favor, preencha todos os campos.");
     }
   }
 }
@@ -134,8 +143,12 @@ function registrarVenda() {
     document.getElementById('venda-preco').value = '';
     document.getElementById('venda-cliente').value = '';
   } else {
-    exibirMensagem('Por favor, preencha todos os campos');
+    resulvenda.innerHTML = ('Por favor, preencha todos os campos');
   }
+
+  setTimeout(() => {
+    resulvenda.classList.add("hidden");
+  }, 3000);
 }
 
 function gerarRelatorioVendas() {
@@ -143,14 +156,14 @@ function gerarRelatorioVendas() {
     tabelaRelatorio.innerHTML = ''; 
 
     if (vendas.length === 0) {
-        exibirMensagem('Nenhuma venda registrada.');
+        resulrelat.innerHTML = ('Nenhuma venda registrada.');
         return;
     }
 
     let totalVendas = 0; 
 
-    if (totalVendas.length == 0) {
-        exibirMensagem('Valor de Venda não registrado!')
+    if (vendas.length == 0) {
+        resulrelat.innerHTML = ('Valor de Venda não registrado!');
         return;
     }
 

@@ -1,175 +1,164 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
-
-body {
-    margin: 0;
-    font-family: 'Quicksand', sans-serif;
-    background: linear-gradient(135deg, #f9f9f9 0%, #dcdcdc 40%, #b0b0b0 70%, #222222 100%);
-    background-size: 400% 400%;
-    animation: gradientShift 30s ease infinite;
-    color: #222;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@keyframes gradientShift {
+/* Corpo da página */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9f9f9; /* Fundo quase branco */
+  color: #111;          /* Texto preto escuro */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Cabeçalho com logo */
+.header-logo {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 40px;
+  user-select: none;
+}
+
+.header-logo img {
+  max-width: 180px;
+  height: auto;
+  display: inline-block;
+  animation: pulseLight 3s infinite alternate;
+}
+
+@keyframes pulseLight {
   0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.2));
   }
   100% {
-    background-position: 0% 50%;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.4));
   }
 }
 
-
+/* Container do login */
 .container {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 40px 50px;
-    border-radius: 16px;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
-    backdrop-filter: blur(6px);
-    width: 350px;
-    animation: fadeInUp 1.2s ease forwards;
-    opacity: 0;
-    text-align: center;
+  background: #fff; /* fundo branco puro */
+  padding: 40px 50px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  width: 320px;
+  max-width: 90vw;
+  text-align: center;
+  animation: fadeInUp 0.8s ease forwards;
+  position: relative;
 }
 
-h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.8em;
-    margin-bottom: 10px;
-    color: #111;
-    text-shadow: 0 0 12px #bbb, 0 0 24px #bbb;
-    animation: glowLight 2.5s ease-in-out infinite alternate;
+/* Cabeçalhos do login */
+.container h1 {
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 1.9rem;
+  color: #000;
+  text-shadow: 0 0 6px rgba(0,0,0,0.1);
 }
 
-h2 {
-    font-weight: 500;
-    color: #444;
-    margin-bottom: 30px;
+.container h2 {
+  font-weight: 400;
+  margin-bottom: 24px;
+  font-size: 1.1rem;
+  color: #444;
 }
 
+/* Grupos de formulário */
 .form-group {
-    margin-bottom: 20px;
-    text-align: left;
+  text-align: left;
+  margin-bottom: 20px;
 }
 
-label {
-    display: block;
-    font-weight: 600;
-    margin-bottom: 6px;
-    color: #222;
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #222;
 }
 
-input[type="text"], input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    border-radius: 8px;
-    border: 1px solid #999;
-    background-color: #fafafa;
-    font-size: 1em;
-    color: #111;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1.8px solid #ccc;
+  border-radius: 6px;
+  transition: border-color 0.3s ease;
+  outline-offset: 2px;
 }
 
-input[type="text"]:focus, input[type="password"]:focus {
-    border-color: #444;
-    box-shadow: 0 0 10px #444;
-    outline: none;
+.form-group input:focus {
+  border-color: #000;
+  box-shadow: 0 0 6px rgba(0,0,0,0.2);
 }
 
+/* Botão */
 button {
-    width: 100%;
-    background-color: #222;
-    color: #fafafa;
-    padding: 14px 0;
-    font-size: 1.1em;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
-    animation: pulse 3s ease-in-out infinite;
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  transition: background-color 0.25s ease, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #444;
-    box-shadow: 0 0 25px #444;
-    transform: translateY(-3px);
-    animation: none;
+  background-color: #222;
+  transform: scale(1.05);
 }
 
+/* Mensagem de erro/sucesso */
 .mensagem {
-    color: #b22222;
-    font-weight: 600;
-    margin-top: 15px;
-    border: 1.5px solid #b22222;
-    background-color: #ffe6e6;
-    padding: 10px;
-    border-radius: 10px;
-    animation: shake 0.4s ease-in-out 2;
-    text-align: center;
-    box-shadow: 0 0 10px #b22222;
+  margin-top: 18px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 10px 12px;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  user-select: none;
 }
 
-/* Animação shake */
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
+.mensagem.sucesso {
+  color: #1a7f1a;
+  background: #d7f0d7;
+  box-shadow: 0 0 8px rgba(26,127,26,0.5);
+  opacity: 1;
+  pointer-events: auto;
 }
 
+.mensagem.erro {
+  color: #a11a1a;
+  background: #f7d7d7;
+  box-shadow: 0 0 8px rgba(161,26,26,0.5);
+  opacity: 1;
+  pointer-events: auto;
+}
 
 .hidden {
-    display: none;
+  display: none !important;
 }
 
-/* Animações */
+/* Animação fade-in suave */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes glowLight {
-    from {
-        text-shadow: 0 0 12px #bbb, 0 0 24px #bbb;
-    }
-    to {
-        text-shadow: 0 0 20px #444, 0 0 30px #444;
-    }
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
-    }
-    50% {
-        transform: scale(1.05);
-        box-shadow: 0 0 30px #444;
-    }
-}
-
-/* Responsivo */
-@media (max-width: 400px) {
-    .container {
-        width: 90%;
-        padding: 30px 20px;
-    }
-
-    h1 {
-        font-size: 2em;
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -8,6 +8,10 @@
     <title>Pizzaria</title>
 </head>
 <body>
+    <header class="header-logo">
+    <img src="Logo_Minimalista_de_Pizzaria__1_-removebg-preview.png" alt="Logo Italianos Pizzas" />
+  </header>
+
   <div class="container">
     <h1>ITALIANOS PIZZAS</h1>
     <div class="menu">
@@ -59,6 +63,7 @@
     <!--Seção de Alteração-->
     <div id="alterar" class="hidden">
         <h2>Alterar Pizzas</h2>
+        <p id="buscalterarfeito"></p>
         <input type="text" id="busca-alterar" placeholder="Buscar por nome da pizza" oninput="buscarPizzaParaAlterar()">
         <div id="form-alterar" class="hidden">
             <div class="form-group">
@@ -75,6 +80,7 @@
             </div>
             <button onclick="alterarPizza()">Salvar Alterações</button>
         </div>
+        <p id="alterarfeito"></p>
     </div>
 
     <!--Seção de Venda-->
@@ -85,7 +91,7 @@
             <input type="text" id="venda-nome" placeholder="Digite o sabor da pizza">
         </div>
         <div class="form-group">
-            <label for="venda-preco">Preço:</label>
+            <label for="venda-preco">Preço(R$):</label>
             <input type="number" id="venda-preco" placeholder="Digite o preço das pizzas">
         </div>
         <div class="form-group">
@@ -93,6 +99,7 @@
             <input type="text" id="venda-cliente" placeholder="Digite o nome do cliente">
         </div>
         <button onclick="registrarVenda()">Registrar Venda</button>
+        <p id="vender"></p>
         <h3>Pizzas Vendidas</h3>
         <ul id="lista-vendas">
         </ul>
@@ -101,6 +108,7 @@
     <!--Área do relatório-->
     <div id="relatorio-vendas" class="hidden">
         <h3>Relatório de Vendas</h3>
+        <p id="relato"></p>
         <table>
             <thead>
                 <tr>
@@ -113,10 +121,6 @@
         </table>
     </div>
 </div>
-
- <div id="mensagem" class="mensagem hidden"></div>
-  </div>
-  
     <script src="pizzaria.js"></script>
 </body>
 </html>

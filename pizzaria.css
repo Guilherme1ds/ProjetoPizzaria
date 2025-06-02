@@ -1,244 +1,245 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+/* Fundo geral claro */
 body {
-    margin: 0;
-    font-family: 'Quicksand', sans-serif;
-    background: linear-gradient(135deg, #f9f9f9 0%, #dcdcdc 40%, #b0b0b0 70%, #222222 100%);
-    background-size: 400% 400%;
-    animation: gradientShift 30s ease infinite;
-    color: #222;
-    min-height: 100vh;
+  background: #f9f9f9;
+  color: #111;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  overflow-x: hidden;
 }
 
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
+/* Container geral */
 .container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 40px 20px;
-    text-align: center;
-    animation: fadeInUp 1.2s ease forwards;
-    opacity: 0;
+  background: #fff;
+  padding: 40px 30px 60px 30px;
+  max-width: 960px;
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  position: relative;
 }
 
-h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3.2em;
-    color: #111;
-    margin-bottom: 30px;
-    text-shadow: 0 0 12px #bbb, 0 0 24px #bbb;
-    animation: glowLight 2.5s ease-in-out infinite alternate;
+/* Espaço para logo - centralizada */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
 }
 
-@keyframes glowLight {
-    from {
-        text-shadow: 0 0 10px #bbb, 0 0 20px #bbb;
-    }
-    to {
-        text-shadow: 0 0 20px #444, 0 0 30px #444;
-    }
+.logo-container img {
+  max-width: 180px;
+  height: auto;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.15));
+  transition: transform 0.3s ease;
+}
+.logo-container img:hover {
+  transform: scale(1.05);
 }
 
-.menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 40px;
-    animation: fadeInUp 1.4s ease forwards;
-    opacity: 0;
+/* Cabeçalhos */
+h1, h2 {
+  text-align: center;
+  font-weight: 800;
+  color: #222;
+  margin-bottom: 16px;
+  user-select: none;
 }
 
-.menu button {
-    background: #f7f7f7;
-    color: #222;
-    border: 2px solid #444;
-    padding: 15px 25px;
-    font-size: 1em;
-    border-radius: 12px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.4s ease, transform 0.2s ease;
-    box-shadow: 0 0 5px #ccc;
-}
-
-.menu button:hover {
-    background-color: #444;
-    color: #fafafa;
-    transform: scale(1.05);
-    box-shadow: 0 0 15px #444;
-}
-
-.hidden {
-    display: none;
-}
-
-/* Seções internas */
-#cadastro, #consulta, #alterar, #venda, #relatorio-vendas {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 16px;
-    padding: 30px;
-    margin-bottom: 40px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    animation: fadeInUp 1.6s ease forwards;
-    opacity: 0;
-    color: #111;
-}
-
-#cadastro:hover, #consulta:hover, #alterar:hover, #venda:hover, #relatorio-vendas:hover {
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
-    transform: translateY(-4px);
-}
-
-input[type="text"], input[type="number"] {
-    padding: 12px;
-    width: 100%;
-    margin: 10px 0 20px;
-    border-radius: 8px;
-    border: 1px solid #999;
-    background-color: #fafafa;
-    color: #111;
-    font-size: 1em;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-input[type="text"]:focus, input[type="number"]:focus {
-    border-color: #444;
-    box-shadow: 0 0 10px #444;
-    outline: none;
-}
-
+/* Botões - estilo preto e branco */
 button {
-    background-color: #222;
-    color: #fafafa;
-    padding: 12px 20px;
-    font-size: 1em;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 28px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.25s ease, transform 0.2s ease;
+  user-select: none;
+  margin: 12px 10px;
+  display: inline-block;
+  min-width: 130px;
+  text-align: center;
+  letter-spacing: 0.03em;
 }
 
 button:hover {
-    background-color: #444;
-    color: #fafafa;
-    box-shadow: 0 0 20px #444;
-    transform: translateY(-3px);
+  background-color: #222;
+  transform: scale(1.08);
 }
 
-/* Tabela */
+button:focus {
+  outline: 3px solid #555;
+  outline-offset: 2px;
+}
+
+/* Inputs e labels */
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+  user-select: none;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"] {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1.5px solid #bbb;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: #000;
+}
+
+/* Mensagens */
+.mensagem {
+  margin-top: 16px;
+  font-weight: 600;
+  padding: 12px 20px;
+  border-radius: 10px;
+  max-width: 100%;
+  user-select: none;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.mensagem.hidden {
+  opacity: 0;
+  pointer-events: none;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.mensagem.sucesso {
+  color: #006400;
+  background-color: #d4edda;
+  border: 1.5px solid #28a745;
+}
+
+.mensagem.erro {
+  color: #8b0000;
+  background-color: #f8d7da;
+  border: 1.5px solid #dc3545;
+}
+
+/* Seções - visibilidade controlada pelo JS */
+.hidden {
+  display: none;
+}
+
+/* Tabela de cardápio e relatório */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 25px;
+  font-size: 1rem;
 }
 
-th, td {
-    padding: 12px;
-    border-bottom: 1px solid #ddd;
+thead th {
+  background-color: #000;
+  color: #fff;
+  padding: 14px 10px;
+  text-align: left;
+  border-radius: 10px 10px 0 0;
 }
 
-th {
-    background-color: #eee;
-    color: #111;
+tbody td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #ddd;
+  color: #222;
 }
 
-td {
-    color: #111;
+tbody tr:hover {
+  background-color: #f0f0f0;
+  cursor: default;
+  transition: background-color 0.3s ease;
 }
 
 /* Lista de vendas */
 #lista-vendas {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
-    text-align: left;
+  list-style: none;
+  margin-top: 20px;
+  padding-left: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  border-radius: 10px;
+  border: 1.5px solid #ccc;
 }
 
 #lista-vendas li {
-    padding: 10px;
-    background-color: #fafafa;
-    margin-bottom: 8px;
-    border-left: 5px solid #222;
-    transition: background-color 0.3s ease;
-    color: #111;
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+  font-weight: 600;
+  color: #333;
 }
 
-#lista-vendas li:hover {
-    background-color: #e6e6e6;
+#lista-vendas li:last-child {
+  border-bottom: none;
 }
 
-/* Mensagens de status */
-.mensagem {
-    font-weight: 600;
-    margin-top: 15px;
-    padding: 15px 20px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    animation: shake 0.4s ease-in-out 2;
-    max-width: 400px;
-    margin-left: auto;
-    margin-right: auto;
+/* Navegação e botões para mostrar seções */
+.nav-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
 }
 
-.mensagem.sucesso {
-    color: #155724;
-    background-color: #d4edda;
-    border: 1.5px solid #c3e6cb;
-    box-shadow: 0 0 12px #28a745;
-    animation: none; /* Sem shake para sucesso */
+/* Espaçamento entre botões */
+.nav-buttons button {
+  margin: 8px 15px;
 }
 
-.mensagem.erro {
-    color: #721c24;
-    background-color: #f8d7da;
-    border: 1.5px solid #f5c6cb;
-    box-shadow: 0 0 12px #b22222;
+/* Animação suave para troca de seção */
+section {
+  animation: fadeIn 0.5s ease forwards;
 }
 
-/* Animação shake para erro */
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
+/* Animação fadeIn */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
-/* Animações gerais */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+/* Para telas pequenas */
+@media (max-width: 600px) {
+  .container {
+    padding: 30px 20px 50px 20px;
+  }
 
-/* Responsivo */
-@media (max-width: 768px) {
-    .menu {
-        flex-direction: column;
-        gap: 15px;
-    }
+  button {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .nav-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
