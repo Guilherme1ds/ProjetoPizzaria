@@ -40,6 +40,7 @@ function mostrarSecao(secao) {
     document.getElementById("alterar").classList.add("hidden");
     document.getElementById("venda").classList.add("hidden");
     document.getElementById("cadastro").classList.add("hidden");
+    document.getElementById("relatorio-vendas").classList.add("hidden");
 
     document.getElementById(secao).classList.remove("hidden");
 }
@@ -74,6 +75,12 @@ function buscarPizzaParaAlterar() {
   pizzaParaAlterar = pizzaria.find((pizza) =>
     pizza.nome.toLowerCase().includes(busca)
   );
+
+  if (!busca) {
+    document.getElementById("form-alterar").classList.add("hidden");
+    resulbuscalt.innerHTML = "";
+    return;
+  }
 
   if (pizzaParaAlterar) {
     document.getElementById("form-alterar").classList.remove("hidden");
@@ -152,6 +159,8 @@ function registrarVenda() {
 }
 
 function gerarRelatorioVendas() {
+  mostrarSecao('relatorio-vendas')
+
   const tabelaRelatorio = document.getElementById('tabela-relatorio-vendas');
     tabelaRelatorio.innerHTML = ''; 
 
@@ -160,12 +169,9 @@ function gerarRelatorioVendas() {
         return;
     }
 
-    let totalVendas = 0; 
+    resulrelat.innerHTML = '';
 
-    if (vendas.length == 0) {
-        resulrelat.innerHTML = ('Valor de Venda não registrado!');
-        return;
-    }
+    let totalVendas = 0; 
 
     vendas.forEach((venda) => {
         const linha = document.createElement('tr');
@@ -183,7 +189,7 @@ function gerarRelatorioVendas() {
   linhaTotal.innerHTML = `
   <td><strong>Total</strong></td>
   <td><strong>R$${totalVendas.toFixed(2)}</strong></td>
-  <td><td>
+  <td></td>
 `;
 tabelaRelatorio.appendChild(linhaTotal);
 

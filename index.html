@@ -16,10 +16,9 @@
     <h1>ITALIANOS PIZZAS</h1>
     <div class="menu">
         <button onclick="mostrarSecao('cadastro')"><i class="fas fa-plus-circle"></i> Cadastrar Pizza</button>
-        <button onclick="mostrarSecao('consulta')"><i class="fas fa-search"></i> Consultar Pizzas</button>
+        <button onclick="mostrarSecao('consulta')"><i class="fas fa-search"></i> Cardápio</button>
         <button onclick="mostrarSecao('alterar')"><i class="fas fa-edit"></i> Alterar Pizzas</button>
         <button onclick="mostrarSecao('venda')"><i class="fas fa-chart-line"></i> Venda de Pizzas</button>
-        
         <button onclick="gerarRelatorioVendas()"><i class="fas fa-file-alt"></i> Relatório de Vendas</button>
     </div>
 
@@ -44,7 +43,7 @@
 
     <!--Seção de Consulta-->
     <div id="consulta" class="hidden">
-        <h2>Consultar Pizzas</h2>
+        <h2>Cardápio</h2>
         <div class="form-group">
             <input type="text" id="pesquisa" placeholder="Digite o nome da pizza" oninput="buscarPizza()">
             <table>
